@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="home">
+        <item>activity</item>
+        <item>fragment</item>
+        <item>util</item>
+        <item>view</item>
+        <item>animation</item>
+        <item>drawable</item>
+        <item>other</item>
+    </string-array>
+    
+    <string-array name="activity">
+        <item>Single Fragment Activity</item>
+        <item>Web View Activity</item>
+    </string-array>
+    
+    <string-array name="fragment">
+        <item>Web View Fragment</item>
+    </string-array>
+    
+    <string-array name="util">
+        <item></item>
+    </string-array>
+    
+    <string-array name="view">
+        <item>Clock View</item>
+        <item>Circle View</item>
+        <item>Color Picker View</item>
+        <item>Histogram View</item>
+        <item>Num View</item>
+        <item>Switch View</item>
+    </string-array>
+
+    <string-array name="animation">
+        <item>Show and Hide Animator</item>
+    </string-array>
+    
+    <string-array name="drawable">
+        <item>Tbtn Drawable</item>
+    </string-array>
+    
+     <string-array name="other">
+        <item></item>
+    </string-array>
+</resources>

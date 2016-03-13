@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lou="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <com.lyloou.android.view.ClockSurfaceView
+        android:id="@+id/clock_view_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="36dp"
+        lou:bgColor="#111111"
+        lou:centerPointColor="#FFFFCC"
+        lou:hourColor="#CCFF99"
+        lou:longScaleColor="#FFFFCC"
+        lou:minuteColor="#99CC33"
+        lou:ringColor="#FFFFCC"
+        lou:secondColor="#801111"
+        lou:textColor="#eeeeee" />
+
+    <com.lyloou.android.view.ClockSurfaceView
+        android:id="@+id/clock_view_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="36dp"
+        lou:bgColor="#ffffff"
+        lou:centerPointColor="#801111"
+        lou:hourColor="#CCCC33"
+        lou:longScaleColor="#801111"
+        lou:minuteColor="#FFCC99"
+        lou:ringColor="#801111"
+        lou:secondColor="#663366"
+        lou:shortScaleColor="#101010"
+        lou:textColor="#101010" />
+</LinearLayout>
