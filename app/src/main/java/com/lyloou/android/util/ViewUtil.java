@@ -132,7 +132,154 @@ public class ViewUtil {
 			});
 		}
 	}
-	
+
+	// ~~~ click effect -------- start(2016.03.17)
+	public static void clickEffectWithBgByAlpha(OnClickListener clickListener, View... views) {
+		if (clickListener == null) {
+			return;
+		}
+		// 逐个处理每个view
+		for (final View v : views) {
+			if(v==null){
+				continue;
+			}
+			// 设置监听
+			v.setOnClickListener(clickListener);
+			// 根据背景是否为空，来处理点击后的效果：不为空则设置透明，为空则设置默认颜色；
+			final boolean bgIsNull = v.getBackground() == null;
+			// 设置触摸效果
+			v.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View view, MotionEvent motionEvent) {
+					switch (motionEvent.getAction()) {
+						case MotionEvent.ACTION_DOWN:
+							doDown(view, bgIsNull);
+							break;
+						case MotionEvent.ACTION_MOVE:
+							break;
+						case MotionEvent.ACTION_CANCEL:
+							doReset(view, bgIsNull);
+							break;
+						case MotionEvent.ACTION_UP:
+							doReset(view, bgIsNull);
+							break;
+					}
+					return false;
+				}
+				// 按下时
+				private void doDown(View view, boolean bgIsNull) {
+					view.animate().cancel();
+					view.setAlpha(0.4f);
+					if (bgIsNull) {
+						view.setBackgroundColor(0x88ffffff);
+					} else {
+						view.getBackground().setAlpha(202);
+					}
+				}
+				// 恢复视图
+				private void doReset(View view, boolean bgIsNull) {
+					view.animate().alpha(1f).setDuration(100).start();
+					if (bgIsNull) {
+						view.setBackground(null);
+					} else {
+						view.getBackground().setAlpha(255);
+					}
+				}
+			});
+		}
+	}
+
+	public static void clickEffectByAlpha(OnClickListener clickListener, View... views) {
+		if (clickListener == null) {
+			return;
+		}
+		// 逐个处理每个view
+		for (final View v : views) {
+			if(v==null){
+				continue;
+			}
+			// 设置监听
+			v.setOnClickListener(clickListener);
+			// 根据背景是否为空，来处理点击后的效果：不为空则设置透明，为空则设置默认颜色；
+			// 设置触摸效果
+			v.setOnTouchListener(new OnTouchListener() {
+				@Override
+				public boolean onTouch(View view, MotionEvent motionEvent) {
+					switch (motionEvent.getAction()) {
+						case MotionEvent.ACTION_DOWN:
+							doDown(view);
+							break;
+						case MotionEvent.ACTION_MOVE:
+							break;
+						case MotionEvent.ACTION_CANCEL:
+							doReset(view);
+							break;
+						case MotionEvent.ACTION_UP:
+							doReset(view);
+							break;
+					}
+					return false;
+				}
+				// 按下时
+				private void doDown(View view) {
+					view.animate().cancel();
+					view.setAlpha(0.4f);
+				}
+				// 恢复视图
+				private void doReset(View view) {
+					view.animate().alpha(1f).setDuration(100).start();
+				}
+			});
+		}
+	}
+
+	public static void clickEffectByScale(OnClickListener clickListener, View... views) {
+		if (clickListener == null) {
+			return;
+		}
+		// 逐个处理每个view
+		for (final View v : views) {
+			if(v==null){
+				continue;
+			}
+			// 设置监听
+			v.setOnClickListener(clickListener);
+			// 设置触摸效果
+			v.setOnTouchListener(new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					switch (event.getAction()) {
+						case MotionEvent.ACTION_DOWN:
+							doDown(v);
+							break;
+						case MotionEvent.ACTION_MOVE:
+							break;
+						case MotionEvent.ACTION_CANCEL:
+							doReset(v);
+							break;
+						case MotionEvent.ACTION_UP:
+							doReset(v);
+							break;
+					}
+					return false;
+				}
+
+				// 按下时
+				private void doDown(View view) {
+					view.clearAnimation();
+					view.startAnimation(AnimationUtil.getScaleAnimation(200, 1.0f, 0.6f));
+				}
+				// 恢复视图
+				private void doReset(View view) {
+					view.startAnimation(AnimationUtil.getScaleAnimation(200, 0.6f, 1.0f));
+				}
+			});
+		}
+	}
+
+	// ~~~ click effect -------- end(2016.03.17)
+
 	public static int getSizeFromMeasureSpec(int measureSpec, int defaultSize) {
 		int result = 0;
 		int mode = MeasureSpec.getMode(measureSpec);
