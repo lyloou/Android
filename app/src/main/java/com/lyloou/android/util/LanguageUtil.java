@@ -16,6 +16,12 @@ import com.lyloou.android.lou.activity.ListActivity;
 import java.util.Locale;
 
 public class LanguageUtil {
+    // 语言；
+    public static final String LAN_EN = "EN";
+    public static final String LAN_FR = "FR";
+    public static final String LAN_DE = "DE";
+    public static final String LAN_NL = "NL";
+
 
     public static void switchTo(Context context, Locale locale) {
         Resources resources = context.getResources();
@@ -30,16 +36,16 @@ public class LanguageUtil {
     public static void switchTo(Context context, String language) {
         Locale locale = new Locale(language);
         switch (language) {
-            case Constant.LAN_EN:
+            case LAN_EN:
                 locale = Locale.ENGLISH;
                 break;
-            case Constant.LAN_DE:
+            case LAN_DE:
                 locale = Locale.GERMANY;
                 break;
-            case Constant.LAN_FR:
+            case LAN_FR:
                 locale = Locale.FRANCE;
                 break;
-            case Constant.LAN_NL:
+            case LAN_NL:
                 locale = new Locale("nl", "NL");
                 break;
         }
