@@ -23,20 +23,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 public class ViewUtil {
-	public interface Click {
-		void click();
-	}
 
-	public static void click(final View view, final Click click){
-		view.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				click.click();
-			}
-		});
-	}
-	
 	/**
 	 * 设置 ListView 不可滑动
 	 * @param listView

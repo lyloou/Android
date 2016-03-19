@@ -34,6 +34,7 @@
 
     <string-array name="animation">
         <item>Show and Hide Animator</item>
+        <item>Loading</item>
     </string-array>
     
     <string-array name="drawable">

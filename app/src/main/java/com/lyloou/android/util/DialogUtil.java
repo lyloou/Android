@@ -18,16 +18,28 @@ import com.lyloou.android.R;
 import com.lyloou.android.app.LouApp;
 
 public class DialogUtil {
+    public static final int MODE_QUIT_ALL = 666000;
+
+    public void show(Context context, int mode, Intent intent) {
+        switch (mode) {
+            case MODE_QUIT_ALL:
+                quitAll(context, intent);
+                break;
+        }
+    }
+
+    public void show(Context context, int mode) {
+        show(context, mode, null);
+    }
 
 
-    // ~~~ 退出程序的对话框 ---> start
+    // ------ 退出程序的对话框
 
     /**
-     *
      * @param context 上下文
-     * @param intent 用于context 和 Dialog 交互数据；可以设置为null(表示不传给Dialog值);
+     * @param intent  用于context 和 Dialog 交互数据；可以设置为null(表示不传给Dialog值);
      */
-    public static void quitAll(Context context, Intent intent) {
+    private static void quitAll(Context context, Intent intent) {
         final Dialog dialog = new Dialog(context, R.style.exit_dialog);
         dialog.setContentView(R.layout.dialog_quit_all);
 
@@ -62,6 +74,5 @@ public class DialogUtil {
         window.setAttributes(lp);
         dialog.setCancelable(true);
         dialog.show();
-    }
-    // ~~~ 退出程序的对话框 ---> end
+    }// ~~~
 }
