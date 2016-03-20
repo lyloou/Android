@@ -1,3 +1,6 @@
+**6-V1.0.2**(2016.03.19)
+* optimize: LouAdapter-deleteItemWithAnim;
+
 **5-V1.0.2**(2016.03.19)
 * update LouAdapter
 

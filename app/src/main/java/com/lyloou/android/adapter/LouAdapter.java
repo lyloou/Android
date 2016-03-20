@@ -19,12 +19,11 @@ public class LouAdapter extends BaseAdapter {
 
     /**
      * @param context    上下文
-     * @param lists      // 数据列表
      * @param itemViewId // item 的布局；
      */
-    public LouAdapter(Context context, ArrayList<Object> lists, int itemViewId) {
+    public LouAdapter(Context context, int itemViewId) {
         mContext = context;
-        mLists = lists;
+        mLists = new ArrayList<Object>();
         mItemViewId = itemViewId;
     }
 
@@ -122,9 +121,12 @@ public class LouAdapter extends BaseAdapter {
 
     /**
      * @param position 删除的元素所在位置
-     * @param view     删除的元素的视图
+     * @param listView  删除的对象所属ListView
      */
-    public void deleteItemWithAnim(final int position, final View view) {
+    public void deleteItemWithAnim(final int position, ListView listView) {
+        // 注意不能直接使用 getChildAt(position);
+        // 原因[ListView getChildAt returning null for visible children](http://stackoverflow.com/questions/6766625/listview-getchildat-returning-null-for-visible-children);
+        final View view = listView.getChildAt(position - listView.getFirstVisiblePosition());
         final int initHeight = view.getMeasuredHeight();
         Animation anim = new Animation() {
             @Override
@@ -147,10 +149,6 @@ public class LouAdapter extends BaseAdapter {
         };
         anim.setDuration(320);
         view.startAnimation(anim);
-    }
-
-    public void deleteItemWithAnim(int position, ListView listView) {
-        deleteItemWithAnim(position, listView.getChildAt(position));
     }
 
     public void updateChange() {
