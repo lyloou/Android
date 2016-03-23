@@ -24,6 +24,7 @@ import com.lyloou.android.constants.LouConstants;
 import com.lyloou.android.fragment.BaseFragment;
 import com.lyloou.android.lou.activity.ListActivity;
 import com.lyloou.android.test.ActivitySingleFragmentActivityActivity;
+import com.lyloou.android.test.AnimLoadingActivity;
 import com.lyloou.android.test.AnimatorShowAndHideActivity;
 import com.lyloou.android.test.DrawableTbtnSelectorActivity;
 import com.lyloou.android.test.FragmentWebRootFragmentActivity;
@@ -168,6 +169,9 @@ public class ListFragment extends BaseFragment implements OnItemClickListener {
             // animation
             case "Show and Hide Animator":
                 toActivity(mContext, AnimatorShowAndHideActivity.class);
+                break;
+            case "Loading":
+                toActivity(mContext, AnimLoadingActivity.class);
                 break;
 
             // drawable

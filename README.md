@@ -1,5 +1,10 @@
-**4-V1.0.2**(2016.03.23)
-* add:LouAdapter, LouHolder;
+**6-V1.0.2**(2016.03.19)
+* optimize: LouAdapter-deleteItemWithAnim;
+
+**5-V1.0.2**(2016.03.19)
+* update LouAdapter
+
+**4-V1.0.1**(2016.03.19)
 
 **V1.0.1**(2016.03.18)
 * add: db;

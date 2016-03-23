@@ -6,8 +6,8 @@ import com.lyloou.android.app.LouApp;
 
 public class Ulog {
 
-	// private static final boolean DEBUG_MODE = true;
-	private static final boolean DEBUG_MODE = LouApp.DEBUG; // 自动根据环境判断是否打印日志；
+	private static final boolean DEBUG_MODE = true;
+	//private static final boolean DEBUG_MODE = LouApp.DEBUG; // 自动根据环境判断是否打印日志；
 	private static final String TAG = "Lou";
 	
 	public static void d(String tag, String msg){if(DEBUG_MODE){Log.d(tag, msg);}}
