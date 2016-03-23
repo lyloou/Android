@@ -1,3 +1,6 @@
+**8-V1.0.2**(2016.03.23)
+*  update: update clockView;
+
 **7-V1.0.2**(2016.03.23)
 * add:LouAdapter, LouHolder;
 

@@ -49,7 +49,7 @@
 
         <!-- drawable -->
         <activity android:name=".test.DrawableTbtnSelectorActivity" />
-        <activity android:name=".test.AnimLoadingActivity"></activity>
+        <activity android:name=".test.AnimLoadingActivity"/>
     </application>
 
 </manifest>

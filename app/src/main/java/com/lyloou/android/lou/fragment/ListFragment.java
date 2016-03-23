@@ -148,7 +148,7 @@ public class ListFragment extends BaseFragment implements OnItemClickListener {
 
             // view
             case "Clock View":
-                toActivity(mContext, ViewClockViewActivity.class);
+                // toActivity(mContext, ViewClockViewActivity.class);
                 break;
             case "Circle View":
                 toActivity(mContext, ViewCircleViewActivity.class);
