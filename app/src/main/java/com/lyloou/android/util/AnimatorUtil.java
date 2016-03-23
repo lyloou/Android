@@ -103,6 +103,10 @@ public class AnimatorUtil {
                 }
             }
         });
+        if(isToShow){
+            // 加延迟，目的是保证之前是处于关闭状态；
+            va.setStartDelay(duration+2);
+        }
         va.setDuration(duration);
         va.start();
     }

@@ -213,6 +213,7 @@ public class NumView extends LinearLayout {
 			// LogUtil.e("v:"+v.getX() + "v-Y:"+v.getY());
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
+				v.animate().cancel();
 				v.setAlpha(0.2f);
 				v.setBackgroundColor(0x88ffffff);
 				if (v.getId() == R.id.iv_num_reduce) {

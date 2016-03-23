@@ -17,6 +17,9 @@ import android.widget.ListView;
 
 import com.lyloou.android.R;
 import com.lyloou.android.activity.WebRootActivity;
+import com.lyloou.android.adapter.LouAdapter;
+import com.lyloou.android.adapter.LouHolder;
+import com.lyloou.android.app.LouApp;
 import com.lyloou.android.constants.LouConstants;
 import com.lyloou.android.fragment.BaseFragment;
 import com.lyloou.android.lou.activity.ListActivity;
@@ -35,6 +38,7 @@ public class ListFragment extends BaseFragment implements OnItemClickListener {
     private Context mContext;
     private ArrayList<String> mDatas;
     public static final String DATA_LEVEL = "data_level";
+    private LouAdapter<String> mLouAdapter;
 
     public ListFragment() {
         super();
@@ -75,7 +79,14 @@ public class ListFragment extends BaseFragment implements OnItemClickListener {
 
     private void initView(View view) {
         ListView lvMain = (ListView) view.findViewById(R.id.lv_main);
-        lvMain.setAdapter(new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, mDatas));
+        // lvMain.setAdapter(new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, mDatas));
+        lvMain.setAdapter(mLouAdapter = new LouAdapter<String>(mContext, lvMain, android.R.layout.simple_list_item_1) {
+            @Override
+            protected void assign(LouHolder holder, String s) {
+                holder.putText(android.R.id.text1, s);
+            }
+        });
+        mLouAdapter.initList(mDatas);
         lvMain.setOnItemClickListener(this);
     }
 
