@@ -8,7 +8,7 @@ android {
         applicationId "com.lyloou.android"
         minSdkVersion 19
         targetSdkVersion 23
-        versionCode 6
+        versionCode 7
         versionName "1.0.2"
     }
     buildTypes {
