@@ -6,4 +6,11 @@
 
     <color name="main_bg">#f3f3f3</color>
     <color name="main_font">#000000</color>
+
+    <!-- lv_item -->
+    <color name="lv_item_state_activated">#994455</color>
+    <color name="lv_item_state_activated_pressed">#d72e50</color>
+    <color name="lv_item_state_pressed">#88eec99d</color>
+    <color name="lv_item_state_normal">#e29944</color>
+
 </resources>

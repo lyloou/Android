@@ -1,3 +1,6 @@
+* add:LouAdapter,添加 choice调用；
+* add: LouHolder,支持圆角图片；
+
 **8-V1.0.2**(2016.03.23)
 *  update: update clockView;
 

@@ -1,5 +1,6 @@
 package com.lyloou.android.adapter;
 import android.content.Context;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -197,5 +198,44 @@ public abstract class LouAdapter<T> extends BaseAdapter {
 		updateChange();
 	}
 
+	// -------- 添加 choice调用（2016.03.25）
+	public void clearChoice() {
+		mListView.clearChoices();
+		updateChange();
+		mListView.post(new Runnable() {
+			@Override
+			public void run() {
+				// 注意需要使用Runnable才能生效；
+				// 参考资料[ListView selection remains persistent after exiting choice mode]
+				// (http://stackoverflow.com/questions/9754170/listview-selection-remains-persistent-after-exiting-choice-mode)
+				mListView.setChoiceMode(AbsListView.CHOICE_MODE_NONE);
+			}
+		});
+	}
+
+	public void setChoiceMode(int mode) {
+		mListView.setChoiceMode(mode);
+	}
+
+	public int getChoiceMode() {
+		return mListView.getChoiceMode();
+	}
+
+	public void deleteChoicedItem() {
+		if (mListView.getChoiceMode() != AbsListView.CHOICE_MODE_NONE) {
+			// 获取被选中的ITEM；
+			SparseBooleanArray sparseBooleanArray = mListView.getCheckedItemPositions();
+			ArrayList<T> deleteLists = new ArrayList<T>();
+			for (int i = 0; i < sparseBooleanArray.size(); i++) {
+				if(sparseBooleanArray.valueAt(i)){
+					deleteLists.add(mLists.get(sparseBooleanArray.keyAt(i)-1));
+				}
+			}
+			mLists.removeAll(deleteLists);
+			mListView.clearChoices();
+			updateChange();
+		}
+	}
+	// ~~~~~~~~~~~~
 
 }

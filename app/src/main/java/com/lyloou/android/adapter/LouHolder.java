@@ -2,12 +2,17 @@ package com.lyloou.android.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.lyloou.android.util.ScreenUtil;
+import com.lyloou.android.util.ViewUtil;
 
 /**
  * Created by Lou on 2016/3/23.
@@ -89,4 +94,24 @@ public class LouHolder {
     }
 
 
+    // -------------支持圆角图片；(2016.03.25)
+    public LouHolder putImg(int viewId, int resId, boolean roundShape) {
+        if (roundShape) {
+            View v = getView(viewId);
+            if (v instanceof ImageView) {
+                Bitmap bitmap = ViewUtil.getBitmapByXfermode(v.getContext(),
+                        resId,
+                        Color.parseColor("#993382"),
+                        ScreenUtil.dp2Px(v.getContext(), 48),
+                        ScreenUtil.dp2Px(v.getContext(), 48),
+                        PorterDuff.Mode.SRC_IN);
+                ((ImageView) v).setImageBitmap(bitmap);
+            }
+        } else {
+            return putImg(viewId, resId);
+        }
+
+        return this;
+    }
+    // ~~~~~~~~~~~~~
 }
